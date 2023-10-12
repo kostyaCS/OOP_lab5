@@ -15,11 +15,7 @@ public class Flower extends Item {
     @Getter
     private FlowerType flowerType;
 
-    public Flower() { };
-
-    public String getColor() {
-        return color.toString();
-    }
+    public Flower() { }
 
     public Flower(Flower fl) {
         this.sepalLength = fl.sepalLength;
@@ -28,8 +24,29 @@ public class Flower extends Item {
         this.flowerType = fl.flowerType;
     }
 
-    public boolean equals(Flower fl) {
-        return (this.flowerType == fl.flowerType && this.color == fl.color &&
-        this.price == fl.price && this.sepalLength == fl.sepalLength);
+    public String getColor() {
+        return color.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Flower fl = (Flower) obj;
+        return this.flowerType == fl.flowerType
+                && this.color == fl.color
+                && this.price == fl.price
+                && this.sepalLength == fl.sepalLength;
+    }
+
+    // Ensure you also override the hashCode() method if you're overriding equals
+    @Override
+    public int hashCode() {
+        // Example hashCode method using Java's Objects utility:
+        return java.util.Objects.hash(sepalLength, color, price, flowerType);
     }
 }
