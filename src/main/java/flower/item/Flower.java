@@ -3,6 +3,7 @@ package flower.item;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import java.util.Objects; // Add this import
 
 @Setter
 @AllArgsConstructor
@@ -46,7 +47,6 @@ public class Flower extends Item {
     // Ensure you also override the hashCode() method if you're overriding equals
     @Override
     public int hashCode() {
-        // Example hashCode method using Java's Objects utility:
-        return java.util.Objects.hash(sepalLength, color, price, flowerType);
+        return Objects.hash(sepalLength, color, price, flowerType); // Shortened line
     }
 }

@@ -19,6 +19,6 @@ public class FlowerBucket extends Item {
     }
 
     public List<FlowerPack> getBucket() {
-        return new ArrayList<>(bucket); // Return a defensive copy to ensure immutability
+        return new ArrayList<>(bucket);
     }
 }

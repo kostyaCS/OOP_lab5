@@ -8,16 +8,18 @@ import flower.item.Item;
 
 public class Store {
 
-    private List<Item> items = new ArrayList<>();
+    private List<Item> items;  // Made this private for encapsulation
 
-    public List<Item> getItems() {
-        return new ArrayList<>(items); // Return a defensive copy to ensure immutability
+    // Adding a constructor to initialize the items list
+    public Store() {
+        items = new ArrayList<>();
     }
 
-    public void setItems(List<Item> items) {
-        this.items = new ArrayList<>(items); // Store a defensive copy to ensure immutability
+    public void addItem(Item item) {
+        items.add(item);
     }
 
+    // Note: Renamed the parameter to avoid hiding the field
     public List<Item> search(SearchFilter searchFilter) {
         List<Item> foundItems = new ArrayList<>();
         for (Item item : items) {
